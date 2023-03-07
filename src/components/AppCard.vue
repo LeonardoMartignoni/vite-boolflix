@@ -5,7 +5,10 @@ export default {
   },
 
   props: {
-    film: Object,
+    title: String,
+    originalTitle: String,
+    lang: String,
+    vote: Number,
   },
 
   methods: {
@@ -21,12 +24,12 @@ export default {
 
 <template>
   <ul>
-    <li>title: {{ film.title }}</li>
-    <li>original title: {{ film.original_title }}</li>
+    <li>title: {{ title }}</li>
+    <li>original title: {{ originalTitle }}</li>
     <li>
-      <img :src="getFlag(film.original_language)" />
+      <img :src="getFlag(lang)" />
     </li>
-    <li>vote avg: {{ film.vote_average }}</li>
+    <li>vote avg: {{ vote }}</li>
   </ul>
 </template>
 

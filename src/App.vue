@@ -7,6 +7,7 @@ export default {
   data() {
     return {
       films: [],
+      tvSeries: [],
     };
   },
 
@@ -28,6 +29,18 @@ export default {
           this.films = results.data.results;
           console.log(this.films);
         });
+
+      axios
+        .get("https://api.themoviedb.org/3/search/tv", {
+          params: {
+            api_key: "9662f4631b63862b49fb1bf5e49bd400",
+            query: query,
+          },
+        })
+        .then((results) => {
+          this.tvSeries = results.data.results;
+          console.log(this.tvSeries);
+        });
     },
   },
 };
@@ -43,14 +56,40 @@ export default {
     <div class="row">
       <div class="col">
         <div v-for="film in films">
-          <AppCard :film="film" />
+          <AppCard
+            :title="film.title"
+            :originalTitle="film.original_title"
+            :lang="film.original_language"
+            :vote="film.vote_average"
+          />
         </div>
       </div>
     </div>
   </div>
 
-  <div v-else>
-    <h2>Inizia la ricerca</h2>
+  <div
+    v-if="tvSeries.length"
+    class="container-fluid tv_series"
+  >
+    <h2>TV Series</h2>
+    <div class="row">
+      <div class="col">
+        <div v-for="tvSeries in tvSeries">
+          <AppCard
+            :title="tvSeries.name"
+            :originalTitle="tvSeries.original_name"
+            :lang="tvSeries.original_language"
+            :vote="tvSeries.vote_average"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div v-if="!films.length && !tvSeries.length">
+    <div class="container-fluid">
+      <h2>Inizia la ricerca</h2>
+    </div>
   </div>
 </template>
 
