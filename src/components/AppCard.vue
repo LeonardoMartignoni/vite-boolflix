@@ -17,6 +17,10 @@ export default {
       if (code == "en") return `https://flagcdn.com/w20/gb.png`;
       else if (code == "hy") return `https://flagcdn.com/w20/am.png`;
       else if (code == "ja") return `https://flagcdn.com/w20/jp.png`;
+      else if (code == "ko") return `https://flagcdn.com/w20/kr.png`;
+      else if (code == "zh") return `https://flagcdn.com/w20/cn.png`;
+      else if (code == "hi") return `https://flagcdn.com/w20/in.png`;
+      else if (code == "el") return `https://flagcdn.com/w20/gr.png`;
       return `https://flagcdn.com/w20/${code}.png`;
     },
 
