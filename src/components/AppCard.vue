@@ -42,6 +42,8 @@ export default {
       <img :src="getFlag(lang)" />
     </li>
     <li>vote avg: {{ Math.ceil(vote / 2) }}</li>
+    <!-- <font-awesome-icon icon="fa-solid fa-star" />
+    <font-awesome-icon icon="fa-regular fa-star" /> -->
   </ul>
 </template>
 
