@@ -50,12 +50,19 @@ export default {
       <span>
         <img :src="getFlag(lang)" />
       </span>
-      <span
-        ><span class="card_heading fw-bold d-inline-block">Vote: </span>
-        {{ Math.ceil(vote / 2) }}</span
-      >
-      <!-- <font-awesome-icon icon="fa-solid fa-star" />
-      <font-awesome-icon icon="fa-regular fa-star" /> -->
+      <span>
+        <span
+          class="stars"
+          v-for="n in Math.ceil(vote / 2)"
+          ><font-awesome-icon icon="fa-solid fa-star"
+        /></span>
+
+        <span
+          class="stars"
+          v-for="n in Math.floor(5 - vote / 2)"
+          ><font-awesome-icon icon="fa-regular fa-star"
+        /></span>
+      </span>
     </div>
   </div>
 </template>
@@ -85,6 +92,10 @@ export default {
     }
     span {
       display: block;
+    }
+    .stars {
+      display: inline-block;
+      color: gold;
     }
   }
 }
