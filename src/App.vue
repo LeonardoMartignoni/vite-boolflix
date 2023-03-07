@@ -1,5 +1,6 @@
 <script>
 import SearchBar from "./components/SearchBar.vue";
+import AppCard from "./components/AppCard.vue";
 import axios from "axios";
 
 export default {
@@ -11,6 +12,7 @@ export default {
 
   components: {
     SearchBar,
+    AppCard,
   },
 
   methods: {
@@ -27,12 +29,6 @@ export default {
           console.log(this.films);
         });
     },
-
-    getFlag(code) {
-      if (code == "en") return `https://flagcdn.com/w20/gb.png`;
-      else if (code == "hy") return `https://flagcdn.com/w20/am.png`;
-      return `https://flagcdn.com/w20/${code}.png`;
-    },
   },
 };
 </script>
@@ -46,14 +42,9 @@ export default {
     <h2>Films</h2>
     <div class="row">
       <div class="col">
-        <ul v-for="film in films">
-          <li>title: {{ film.title }}</li>
-          <li>original title: {{ film.original_title }}</li>
-          <li>
-            <img :src="getFlag(film.original_language)" />
-          </li>
-          <li>vote avg: {{ film.vote_average }}</li>
-        </ul>
+        <div v-for="film in films">
+          <AppCard :film="film" />
+        </div>
       </div>
     </div>
   </div>
