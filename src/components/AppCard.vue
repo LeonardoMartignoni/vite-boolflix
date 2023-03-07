@@ -41,7 +41,7 @@ export default {
     <li>
       <img :src="getFlag(lang)" />
     </li>
-    <li>vote avg: {{ vote }}</li>
+    <li>vote avg: {{ Math.ceil(vote / 2) }}</li>
   </ul>
 </template>
 
