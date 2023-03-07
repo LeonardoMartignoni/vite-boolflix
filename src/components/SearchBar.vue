@@ -5,6 +5,13 @@ export default {
       term: "",
     };
   },
+
+  methods: {
+    sendTerm() {
+      this.$emit("fetch-results", this.term);
+      this.term = "";
+    },
+  },
 };
 </script>
 
@@ -22,12 +29,12 @@ export default {
             class="form-control me-2"
             placeholder="Search films or tv series"
             v-model="term"
-            @keyup.enter="$emit('fetch-results', term)"
+            @keyup.enter="sendTerm"
           />
           <button
             class="btn btn-outline-danger"
             type="button"
-            @click="$emit('fetch-results', term)"
+            @click="sendTerm"
           >
             Search
           </button>
