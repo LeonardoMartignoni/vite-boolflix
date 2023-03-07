@@ -53,16 +53,18 @@ export default {
     class="container-fluid films"
   >
     <h2>Films</h2>
-    <div class="row">
-      <div class="col">
-        <div v-for="film in films">
-          <AppCard
-            :title="film.title"
-            :originalTitle="film.original_title"
-            :lang="film.original_language"
-            :vote="film.vote_average"
-          />
-        </div>
+    <div class="cards_container row flex-nowrap">
+      <div
+        v-for="film in films"
+        class="col"
+      >
+        <AppCard
+          :title="film.title"
+          :originalTitle="film.original_title"
+          :lang="film.original_language"
+          :vote="film.vote_average"
+          :poster="film.poster_path"
+        />
       </div>
     </div>
   </div>
@@ -72,16 +74,18 @@ export default {
     class="container-fluid tv_series"
   >
     <h2>TV Series</h2>
-    <div class="row">
-      <div class="col">
-        <div v-for="tvSeries in tvSeries">
-          <AppCard
-            :title="tvSeries.name"
-            :originalTitle="tvSeries.original_name"
-            :lang="tvSeries.original_language"
-            :vote="tvSeries.vote_average"
-          />
-        </div>
+    <div class="cards_container row flex-nowrap">
+      <div
+        v-for="tvSeries in tvSeries"
+        class="col"
+      >
+        <AppCard
+          :title="tvSeries.name"
+          :originalTitle="tvSeries.original_name"
+          :lang="tvSeries.original_language"
+          :vote="tvSeries.vote_average"
+          :poster="tvSeries.poster_path"
+        />
       </div>
     </div>
   </div>
@@ -93,4 +97,8 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.cards_container {
+  overflow-x: auto;
+}
+</style>
