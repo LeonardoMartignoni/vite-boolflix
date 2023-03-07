@@ -50,7 +50,7 @@ export default {
   <SearchBar @fetch-results="fetchResults" />
   <div
     v-if="films.length"
-    class="container-fluid films"
+    class="container-fluid films mb-4"
   >
     <h2>Films</h2>
     <div class="cards_container row flex-nowrap">
@@ -71,7 +71,7 @@ export default {
 
   <div
     v-if="tvSeries.length"
-    class="container-fluid tv_series"
+    class="container-fluid tv_series my-4"
   >
     <h2>TV Series</h2>
     <div class="cards_container row flex-nowrap">
@@ -90,15 +90,29 @@ export default {
     </div>
   </div>
 
-  <div v-if="!films.length && !tvSeries.length">
-    <div class="container-fluid">
-      <h2>Inizia la ricerca</h2>
-    </div>
+  <div
+    v-if="!films.length && !tvSeries.length"
+    class="container-fluid start_searching d-flex align-items-center justify-content-center"
+  >
+    <h2>Start searching!</h2>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+body {
+  background-color: #141414;
+  color: white;
+}
+
+.films {
+  padding-top: 80px;
+}
+
 .cards_container {
   overflow-x: auto;
+}
+
+.start_searching {
+  height: 100vh;
 }
 </style>
