@@ -56,7 +56,7 @@ export default {
     <div class="cards_container row flex-nowrap">
       <div
         v-for="film in films"
-        class="col"
+        class="col-auto"
       >
         <AppCard
           :title="film.title"
@@ -77,7 +77,7 @@ export default {
     <div class="cards_container row flex-nowrap">
       <div
         v-for="tvSeries in tvSeries"
-        class="col"
+        class="col-auto"
       >
         <AppCard
           :title="tvSeries.name"
