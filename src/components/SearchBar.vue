@@ -21,7 +21,7 @@ export default {
       <div class="container-fluid">
         <a
           class="navbar-brand text-uppercase fw-bold fs-2"
-          href="#"
+          href="/"
           >Boolflix</a
         >
         <div class="d-flex">
