@@ -22,7 +22,7 @@ export default {
 
     getPoster(image) {
       if (image == null) {
-        return `https://images.pexels.com/videos/3045163/free-video-3045163.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500`;
+        return `img-not-found.jpg`;
       }
       return `https://image.tmdb.org/t/p/original${image}`;
     },
