@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      title: "Hello world",
+      term: "",
     };
   },
 };
@@ -21,10 +21,12 @@ export default {
           type="search"
           placeholder="Search"
           aria-label="Search"
+          v-model="term"
         />
         <button
           class="btn btn-outline-success"
-          type="submit"
+          type="button"
+          @click="$emit('fetch-results', term)"
         >
           Search
         </button>

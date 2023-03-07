@@ -5,11 +5,17 @@ export default {
   components: {
     SearchBar,
   },
+
+  methods: {
+    fetchResults(query) {
+      console.log(query);
+    },
+  },
 };
 </script>
 
 <template>
-  <SearchBar />
+  <SearchBar @fetch-results="fetchResults" />
 </template>
 
 <style lang="scss" scoped></style>
